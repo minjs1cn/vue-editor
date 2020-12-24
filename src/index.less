@@ -1,0 +1,41 @@
+/* reset */
+html, body {
+  height: 100%;
+}
+html {
+  background-color: #f5f5f5;
+}
+body {
+  margin: 0 auto;
+  background-color: #fff;
+}
+#app {
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+div {
+  box-sizing: border-box;
+}
+
+/* global */
+
+.flex {
+  display: flex;
+  flex: 1;
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.column {
+    flex-direction: column;
+  }
+
+  &-1 {
+    flex: 1;
+  }
+}

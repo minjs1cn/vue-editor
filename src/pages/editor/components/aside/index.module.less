@@ -1,0 +1,17 @@
+.aside {
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  border-bottom: 1px solid @border-color;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    border-right: 1px solid @border-color;
+  }
+}
