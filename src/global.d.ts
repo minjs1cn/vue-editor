@@ -8,6 +8,9 @@ declare module '*.jpg' {
   export default str
 }
 
+declare module '*.less'
+declare module '*.css'
+
 declare module '*.module.less' {
   const str: {
     [index: string]: string

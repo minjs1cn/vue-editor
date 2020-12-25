@@ -9,7 +9,6 @@ import { useRouter } from 'vue-router'
 export default defineComponent({
   setup() {
     const route = useRouter()
-    console.log(route)
   },
 
   render() {

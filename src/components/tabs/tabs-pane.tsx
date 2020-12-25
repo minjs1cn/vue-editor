@@ -1,13 +1,15 @@
 import { defineComponent } from 'vue'
+import styles from './index.module.less'
 
 export default defineComponent({
   props: {
-    key: {
+    active: Boolean,
+    tab: {
       type: String
     }
   },
 
-  render() {
-    return <div>tabs-pane</div>
+  setup(props, { slots }) {
+    return () => <div class={styles.pane + ' ' + (props.active ? styles.active : '')}>{slots.default()}</div>
   }
 })

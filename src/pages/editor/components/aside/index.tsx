@@ -1,24 +1,30 @@
 import { computed, defineComponent } from 'vue'
-import { useStore } from 'vuex'
-import { RootState } from '../../../../store'
+import { useMyStore } from '../../../../store'
 
 import styles from './index.module.less'
 
 export default defineComponent({
   setup() {
-    const store = useStore<RootState>()
+    const store = useMyStore()
+
+    const onClick = component => () => {
+      store.dispatch('addComponent', {
+        component
+      })
+    }
 
     return {
-      components: computed(() => store.state.components)
+      components: computed(() => store.state.components),
+      onClick
     }
   },
   render() {
-    const { components } = this
+    const { components, onClick } = this
     return (
       <div class={styles.aside}>
         {
           components.map(component => (
-            <div class={styles.item}>{component.name}</div>
+            <div class={styles.item} onClick={onClick(component)}>{component.name}</div>
           ))
         }
       </div>
