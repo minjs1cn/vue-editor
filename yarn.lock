@@ -2148,10 +2148,10 @@ vue-router@^4.0.1:
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.1.tgz#309240e50524b1e7d4e82e27f0a0fa25fe3d1d71"
   integrity sha512-2C2nRxA2nCusgJyUpvcbd9Bnc9kACp/VLUCK4drXtgeRXHjQliZJcgjjP268vkGvvEKun9jjp8Ic1PpzUgbYKg==
 
-vue-types@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/vue-types/-/vue-types-2.0.2.tgz#a995ba3f22f6a1a81bd1d04096a548fcea97e11e"
-  integrity sha512-YXhDIGS//wc8NAGnMP6CTZ4AkU8PNEUzJ3hXAD+pKzdce+ea6JIfsqY3EWhzJopWPmlfyooTGHLZ7w1Ze/sRzQ==
+vue-types@3:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/vue-types/-/vue-types-3.0.1.tgz#20e9baae8673de8093d0a989234695d08d544be0"
+  integrity sha512-UbvbzPu8DNzZRfMB1RDTFKBB6seMm80scMFdP+GkKaw00EugC3cjq9AtlS4y258vDkpAe9HfqbRO4cp63qVHXQ==
   dependencies:
     is-plain-object "3.0.1"
 

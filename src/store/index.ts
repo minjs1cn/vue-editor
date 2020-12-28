@@ -5,6 +5,9 @@ interface Component {
   id: number
   name: string
   component: string
+  props?: {
+    [key: string]: unknown
+  }
 }
 
 interface Work {
@@ -27,7 +30,7 @@ export interface RootState {
   components: Array<Component>
   work: Work,
   works: Array<Work>,
-  currentComponent: Node | null
+  currentNode: Node | null
 }
 let _uid = 0
 
@@ -58,11 +61,12 @@ const store = createStore<RootState>({
       }
     },
     works: [],
-    currentComponent: null,
+    currentNode: null,
   },
   actions: {
-    addComponent({ state }, { component }) {
-      state.work.page.nodes.push({
+    // 添加组件
+    addComponent({ state, dispatch }, { component }: { component: Component }) {
+      const newNode: Node = {
         ...component,
         style: {
           position: 'absolute',
@@ -70,18 +74,24 @@ const store = createStore<RootState>({
           top: '0px',
           width: '200px',
           height: '200px',
-          zIndex: 0,
-          cursor: 'pointer'
+          zIndex: 0
         },
         _uid: ++_uid
+      }
+      state.work.page.nodes.push(newNode)
+      // 立即设置当前节点为新添加的组件
+      dispatch('setCurrentNode', {
+        node: newNode
       })
     },
-    setCurrent({ state }, { component }) {
-      state.currentComponent = component
+    // 设置当前节点
+    setCurrentNode({ state }, { node }: { node: Node }) {
+      state.currentNode = node
     },
-    setPosition({ state }, { x, y }) {
-      state.currentComponent.style.left = parseFloat(state.currentComponent.style.left as string) + x + 'px'
-      state.currentComponent.style.top = parseFloat(state.currentComponent.style.top as string) + y + 'px'
+    // 更新当前节点的位置
+    setCurrentNodePosition({ state }, { x, y }: { x: number, y: number }) {
+      state.currentNode.style.left = x + 'px'
+      state.currentNode.style.top = y + 'px'
     }
   }
 })

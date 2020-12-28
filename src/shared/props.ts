@@ -1,4 +1,4 @@
-import { ComponentPublicInstance, Fragment, VNode } from 'vue'
+import { ComponentPublicInstance, CSSProperties, Fragment, VNode } from 'vue'
 
 export function getSlot(self: ComponentPublicInstance, name = 'default', options = {}) {
   return flattenChildren(self.$slots[name](options))
@@ -23,4 +23,18 @@ export function flattenChildren(children: Array<VNode> | string) {
   })
 
   return res
+}
+
+const StyleUnits = ['width', 'height', 'left', 'top']
+
+export function styleUnit(style: CSSProperties): CSSProperties {
+  const result = {}
+  Object.keys(style).forEach(key => {
+    if (StyleUnits.includes(key)) {
+      result[key] = style[key] + 'px'
+    } else {
+      result[key] = style[key]
+    }
+  })
+  return result
 }

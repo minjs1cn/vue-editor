@@ -13,10 +13,12 @@ export default defineComponent({
 
   setup(props) {
     return () => <div style={{
+      width: '100%',
+      height: '100%',
       position: 'relative'
     }}>
       {props.nodes.map(node => (
-        <Node style={node.style} uid={node._uid}>{h(packages[node.component])}</Node>
+        <Node node={node} data-uid={node._uid}>{h(packages[node.component], node.props)}</Node>
       ))}
     </div>
   }
