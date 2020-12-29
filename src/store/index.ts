@@ -72,8 +72,8 @@ const store = createStore<RootState>({
           position: 'absolute',
           left: '0px',
           top: '0px',
-          width: '200px',
-          height: '200px',
+          width: '150px',
+          height: '100px',
           zIndex: 0
         },
         _uid: ++_uid
@@ -92,6 +92,11 @@ const store = createStore<RootState>({
     setCurrentNodePosition({ state }, { x, y }: { x: number, y: number }) {
       state.currentNode.style.left = x + 'px'
       state.currentNode.style.top = y + 'px'
+    },
+    // 更新当前节点的大小
+    setCurrentNodeSize({ state }, { width, height }: { width: number, height: number }) {
+      state.currentNode.style.width = width + 'px'
+      state.currentNode.style.height = height + 'px'
     }
   }
 })

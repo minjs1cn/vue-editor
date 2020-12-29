@@ -1,0 +1,32 @@
+@size: 6px;
+
+.resize {
+  position: absolute;
+  width: @size * 2;
+  height: @size * 2;
+  background-color: @error-color;
+}
+
+.tl {
+  left: @size * -1;
+  top: @size * -1;
+  cursor: nw-resize;
+}
+
+.tr {
+  right: @size * -1;
+  top: @size * -1;
+  cursor: ne-resize;
+}
+
+.bl {
+  left: @size * -1;
+  bottom: @size * -1;
+  cursor: sw-resize;
+}
+
+.br {
+  right: @size * -1;
+  bottom: @size * -1;
+  cursor: se-resize;
+}

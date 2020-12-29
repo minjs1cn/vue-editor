@@ -4,7 +4,6 @@ import TabPane from './tabs-pane'
 
 Tabs.TabPane = TabPane
 
-/* istanbul ignore next */
 Tabs.install = function(app: App) {
   app.component(Tabs.name, Tabs)
   app.component(Tabs.TabPane.name, Tabs.TabPane)
@@ -16,5 +15,6 @@ export default Tabs as typeof Tabs & Plugin & {
 }
 
 export {
+  Tabs,
   TabPane
 }
